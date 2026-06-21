@@ -1,5 +1,5 @@
 ---
-name: flutter-react-app-architecture
+name: flutter-app-with-react-admin-architecture
 description: Reference architecture for bootstrapping new Flutter mobile apps and React/Vite/Tailwind web admin panels, based on a proven cross-platform codebase. Use whenever the user is starting a new Flutter or React admin project, asking how to structure a Flutter app (layered architecture, Riverpod, GoRouter, Drift), wants a custom animated tab bar, needs Firebase Crashlytics on Android/iOS, is setting up Tailwind CSS v4 with Vite, needs responsive layout down to 320px, or wants theme/design-token conventions instead of hardcoded styles. Also trigger when the user mentions Flutter with Riverpod/GoRouter/Drift, or React with Vite/Tailwind v4 for an admin panel. Trigger even without the words "architecture" or "template" — e.g. "how should I structure my Flutter app", "build me a liquid tab bar", "set up Tailwind v4 with Vite", "add crash reporting to my Flutter app" all qualify.
 ---
 

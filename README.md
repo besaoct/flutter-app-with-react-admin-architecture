@@ -4,7 +4,7 @@ This repository contains **1** reusable agent skills.
 
 ## 🛠️ Available Skills & Performance
 
-<div style="overflow-x: auto;">
+<div style="overflow-x: auto;" markdown="block">
 
 | Skill | Description | Boosts This Run | Total Boosted (Lifetime) | Est. Weekly Boost | Installation |
 | :--- | :--- | :---: | :---: | :---: | :--- |

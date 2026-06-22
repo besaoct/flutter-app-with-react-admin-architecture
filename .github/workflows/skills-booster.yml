@@ -201,36 +201,35 @@ jobs:
           # Generate README.md
           readme_content = f"""# 🚀 Skills
 
-          This repository contains **{len(skills)}** reusable agent skills.
+This repository contains **{len(skills)}** reusable agent skills.
 
-          ## 🛠️ Available Skills
+## 🛠️ Available Skills & Performance
 
-          | Skill | Description | Installation |
-          | :--- | :--- | :--- |
-          """
-          for s in skills:
-              install_cmd = f"`npx skills add {owner}/skills --skill {s['name']}`"
-              readme_content += f"| `{s['name']}` | {s['description']} | {install_cmd} |\n"
+<div style="overflow-x: auto;">
 
-          readme_content += f"""
-          ## 📊 Stats Overview
-          - **Last Updated:** {new_stats['lastRun']}
-          - **Frequency:** Every {frequency} Hours
-          - **Total Runs:** {total_runs}
-          - **Total Successful Boosts:** {total_boosted}
-          - **Average Boosts Per Run:** {avg_per_run}
-          - **Estimated Weekly Boost:** ~{weekly_boost}
-
-          ## 🛠️ Skill Performance
-          | Skill Name | Boosts This Run | Total Boosted (Lifetime) | Est. Weekly Boost |
-          | :--- | :---: | :---: | :---: |
-          """
+| Skill | Description | Boosts This Run | Total Boosted (Lifetime) | Est. Weekly Boost | Installation |
+| :--- | :--- | :---: | :---: | :---: | :--- |
+"""
           for s in skills:
               name = s['name']
+              desc = s['description']
               this_run = this_run_stats.get(name, 0)
               lifetime = skill_stats.get(name, 0)
               est_weekly = this_run * runs_per_week
-              readme_content += f"| `{name}` | {this_run} | {lifetime} | ~{est_weekly} |\n"
+              install_cmd = f"<code style=\"white-space: nowrap;\">npx skills add {owner}/skills --skill {name}</code>"
+              readme_content += f"| `{name}` | {desc} | {this_run} | {lifetime} | ~{est_weekly} | {install_cmd} |\n"
+
+          readme_content += f"""
+</div>
+
+## 📊 Stats Overview
+- **Last Updated:** {new_stats['lastRun']}
+- **Frequency:** Every {frequency} Hours
+- **Total Runs:** {total_runs}
+- **Total Successful Boosts:** {total_boosted}
+- **Average Boosts Per Run:** {avg_per_run}
+- **Estimated Weekly Boost:** ~{weekly_boost}
+"""
 
           with open('README.md', 'w', encoding='utf-8') as f:
               f.write(readme_content)
